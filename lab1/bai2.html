@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bài 1</title>
+    <title>Bài 2</title>
     <style>
       body {
         height: 100vh;
@@ -21,7 +21,7 @@
     </style>
   </head>
   <body>
-    <h1>Bài 1</h1>
+    <h1>Bài 2</h1>
     <script>
       const game = {
         team1: "Bayern Munich",
@@ -62,42 +62,21 @@
         },
       };
       // Câu 1:
-      const [players1, players2] = game.players;
-      console.log(players1, players2);
+      for (const [player, i] of Object.entries(game.scorers))
+        console.log(`Goal ${i}: ${player}`);
 
       // Câu 2:
-      const [gk, ...fieldPlayers] = players1;
-      console.log(gk, fieldPlayers);
+      const odds = Object.values(game.odds);
+      let average = 0;
+      for (const odd of odds) average += odd;
+      average /= odds.length;
+      console.log(average);
 
       // Câu 3:
-      const allPlayers = [...players1, ...players2];
-      console.log(allPlayers);
-
-      // Câu 4:
-      const players1Final = [...players1, "Thiago", "Coutinho", "Periscic"];
-      console.log(players1Final);
-
-      // Câu 5:
-      const {
-        odds: { team1, x: draw, team2 },
-      } = game;
-      console.log(team1, draw, team2);
-
-      // Câu 6:
-      function printGoals(...players) {
-        console.log("Cầu thủ đã ghi bàn:");
-        players.forEach((player, index) => {
-          console.log(`${index + 1}. ${player}`);
-        });
-        console.log(`Tổng số cầu thủ đã ghi bàn: ${players.length}`);
+      for (const [team, odd] of Object.entries(game.odds)) {
+        const teamStr = team === "x" ? "hòa" : `thắng của ${game[team]}`;
+        console.log(`Tỉ lệ ${teamStr} ${odd}`);
       }
-
-      const goalScorers = Object.keys(game.scorers);
-      printGoals(...goalScorers);
-
-      // Câu 7:
-      team1 < team2 && console.log("Đội 1 có nhiều khả năng thắng hơn");
-      team1 > team2 && console.log("Đội 2 có nhiều khả năng thắng hơn");
     </script>
   </body>
 </html>
