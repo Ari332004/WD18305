@@ -78,7 +78,6 @@ const game = {
   },
 };
 
-/*
 // Câu 1:
 for (const [i, player] of game.scored.entries())
   console.log(`Goal ${i + 1}: ${player}`);
@@ -92,7 +91,6 @@ console.log(average);
 
 // Câu 3:
 for (const [team, odd] of Object.entries(game.odds)) {
-  const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
+  const teamStr = team === "x" ? "draw" : `victory ${game[team]}`;
   console.log(`Odd of ${teamStr} ${odd}`);
 }
-*/
