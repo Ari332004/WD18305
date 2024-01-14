@@ -84,15 +84,12 @@
       console.log(team1, draw, team2);
 
       // Câu 6:
-      function printGoals(...players) {
-        console.log("Cầu thủ đã ghi bàn:");
-        players.forEach((player, index) => {
-          console.log(`${index + 1}. ${player}`);
-        });
-        console.log(`Tổng số cầu thủ đã ghi bàn: ${players.length}`);
-      }
-
       const goalScorers = Object.keys(game.scorers);
+      const printGoals = function (...players) {
+        console.log(players.join(", "));
+        console.log(`${players.length} goals were scored`);
+      };
+
       printGoals(...goalScorers);
 
       // Câu 7:
